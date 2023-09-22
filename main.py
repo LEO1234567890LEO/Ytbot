@@ -20,7 +20,7 @@ def process_message(message):
         # Download the video
         yt = YouTube(url)
         stream = yt.streams.get_highest_resolution()
-        stream.download(filename=yt.title)
+        stream.download(filename=yt.title + ".mp4")
         
         # Send the downloaded video to the user
         bot.send_video(message.chat.id, open(yt.title + ".mp4", 'rb'))
